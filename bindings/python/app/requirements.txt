@@ -1,0 +1,5 @@
+flask===3.0.3
+numpy==1.24.0
+moviepy==1.0.3
+opencv-python-headless==4.7.0.72
+Werkzeug==3.0.3
