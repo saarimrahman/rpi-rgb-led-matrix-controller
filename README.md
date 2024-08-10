@@ -1,5 +1,74 @@
-Controlling RGB LED display with Raspberry Pi GPIO
-==================================================
+# RGB LED Panel Controller
+
+## Overview
+
+This project is a Flask-based web application that allows you to control RGB LED panels connected to a Raspberry Pi. It provides an interactive web interface for managing media playback, uploading content, and generating custom displays on LED panels, making it perfect for creating dynamic, crowd-controlled light displays at events.
+
+## Features
+
+- **Remote Control**: Access and control your LED panel from any device connected to the same network.
+- **Media Playback**: Play various types of media including images, GIFs, and videos.
+- **Upload Functionality**: Easily upload new media directly through the web interface.
+- **Text Generation**: Create scrolling text videos on-the-fly.
+- **Queue and Playlist Support**: Organize your media into playlists and queue up items for seamless playback.
+- **Playback Control**: Adjust playback speed and other settings in real-time.
+- **Live Capture**: Take photos or videos on the spot and instantly display them on the LED panel.
+
+## Hardware Requirements
+
+- See the [GPIO control section](#controlling-rgb-led-display-with-raspberry-pi-gpio) for info on which Raspberry Pis and RGB LED Panels are supported
+- Wi-Fi router (for network connectivity)
+
+## Software Requirements
+
+- Raspberry Pi OS
+- Python 3.7+
+- Flask
+- [Additional dependencies listed in [requirements.txt](bindings/python/app/requirements.txt)]
+
+## Project Structure
+
+
+The main application is located in the [app directory](bindings/python/app). Here's the structure of this folder:
+
+```
+bindings/python/app/
+├── controller.py
+├── requirements.txt
+├── runserver.sh
+└── wsgi.py
+```
+
+Key files include:
+- [controller.py](bindings/python/app/controller.py): Contains the main logic for controlling the LED panel.
+- [requirements.txt](bindings/python/app/requirements.txt): Lists all Python dependencies for the project.
+- [runserver.sh](bindings/python/app/runserver.sh): A shell script to start the server.
+- [wsgi.py](bindings/python/app/wsgi.py): The WSGI entry point for the Flask application.
+
+
+## Quick Start
+
+1. Set up your RGB LED panel as outlined in the [GPIO control section](#controlling-rgb-led-display-with-raspberry-pi-gpio).
+2. Connect your RGB LED panel to the Raspberry Pi's GPIO pins.
+3. Ensure your Raspberry Pi is connected to a Wi-Fi network.
+4. Clone this repository to your Raspberry Pi.
+5. Navigate to the [app folder](bindings/python/app) folder `cd bindings/python/app/`
+6. Install the required dependencies: `pip install -r requirements.txt`
+7. Run the Flask application:
+   - Development: `python controller.py`
+   - Production: `./runserver.sh`
+8. Access the web interface by navigating to `http://<raspberry-pi-ip>:5000` in your browser.
+
+## Usage
+Once the application is running, you can:
+- Upload media files through the "Upload" tab.
+- Play media by selecting it from the list and clicking "Play".
+- Generate scrolling text by entering your message in the "Generate" tab.
+- Create and manage playlists in the "Queue" section.
+- Control playback speed and other settings in real-time.
+
+
+# Controlling RGB LED display with Raspberry Pi GPIO
 
 A library to control commonly available 64x64, 32x32 or 16x32 RGB LED panels
 with the Raspberry Pi. Can support PWM up to 11Bit per channel, providing
